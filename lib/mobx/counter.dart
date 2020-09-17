@@ -1,16 +1,15 @@
 import 'package:mobx/mobx.dart';
 
-// Include generated file
+// 合并 counter.g.dart 到该文件路径
 part 'counter.g.dart';
-
-// This is the class used by rest of your codebase
+// 混合生成的文件创建 Model
 class Counter = _Counter with _$Counter;
-
-// The store-class
+// 注册model
 abstract class _Counter with Store {
+  //标注为被观察字段
   @observable
   int value = 0;
-
+  //标注为操作（会自动刷新数据）
   @action
   void increment() {
     value++;

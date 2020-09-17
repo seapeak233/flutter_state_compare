@@ -8,9 +8,8 @@ class MobXPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 获取Store
+    // 获取Model
     final counter = Counter();
-
     return Scaffold(
       appBar: AppBar(
         title: Text('MobX Counter'),
@@ -19,12 +18,11 @@ class MobXPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              '你点击的次数:',
-            ),
-            // Wrapping in the Observer will automatically re-render on changes to counter.value
+            Text('你点击的次数:'),
+            // 被Observer包裹的widget。当被观察的值发生变化的时候将动态刷新
             Observer(
               builder: (_) => Text(
+                // 直接绑定该值
                 '${counter.value}',
                 style: Theme.of(context).textTheme.headline4,
               ),
@@ -33,7 +31,8 @@ class MobXPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: counter.increment,
+        // 直接调用该方法
+        onPressed: () => counter.increment(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

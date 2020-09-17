@@ -5,6 +5,7 @@ import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
 
+/// 总页面 将所有的事件，触发器，初始化进行绑定
 class FishReduxPagePage extends Page<FishReduxPageState, Map<String, dynamic>> {
   FishReduxPagePage()
       : super(
@@ -18,5 +19,4 @@ class FishReduxPagePage extends Page<FishReduxPageState, Map<String, dynamic>> {
                 }),
             middleware: <Middleware<FishReduxPageState>>[
             ],);
-
 }
